@@ -19,6 +19,8 @@ require 'random_data'
 end
 posts = Post.all
 
+  Post.find_or_create_by(title: "The Title", body: "The body")
+
 # Create Comments
 # #3
 100.times do
