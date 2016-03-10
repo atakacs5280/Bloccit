@@ -33,3 +33,5 @@ source 'https://rubygems.org'
  gem 'turbolinks'
 
  gem 'bootstrap-sass'
+
+ gem 'pry-rails', :group => :development
