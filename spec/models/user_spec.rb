@@ -18,6 +18,17 @@ RSpec.describe User, type: :model do
    it { is_expected.to have_secure_password }
    it { is_expected.to validate_length_of(:password).is_at_least(6) }
 
+   describe "capitalized user" do
+
+   let(:user_with_downcase_name) { User.create!(name: "alex takacs", email: "user@bloccit.com", password: "password") }
+
+   it "should have capitalized first and last name" do
+     expect(user_with_downcase_name.name).to eq "Alex Takacs"
+   end
+
+ end
+
+
    describe "invalid user" do
      let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
      let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
