@@ -28,7 +28,6 @@ topics = Topic.all
 
 # Create Posts
 50.times do
-# #1
   Post.create!(
     user: users.sample,
     topic: topics.sample,
@@ -39,18 +38,26 @@ end
 posts = Post.all
 
 # Create Comments
-# #3
 100.times do
-  Comment.create!(
-# #4
+    Comment.create!(
     post: posts.sample,
     body: RandomData.random_paragraph
   )
 end
 
-user = User.first
-user.update_attributes!(
-  email: 'Alexander.g.takacs@gmail.com', 
+
+
+admin = User.create!(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+
+
+member = User.create!(
+  name:     'Member User',
+  email:    'member@example.com',
   password: 'helloworld'
 )
 
