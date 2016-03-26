@@ -9,6 +9,7 @@ before_action :authorize_user, except: [:index, :show]
 
   def show
     @topic = Topic.find(params[:id])
+    @comment = @topic.comments.new
   end
 
   def new
