@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+
   before_action :require_sign_in
 
   def create
@@ -6,12 +7,13 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.build(post: post)
 
     if favorite.save
-      flash[:notice] = "Post favorited."
+      flash[:notice] = "Post favorited!"
     else
       flash[:alert] = "Favoriting failed."
     end
 
     redirect_to [post.topic, post]
+
   end
 
   def destroy
@@ -21,8 +23,10 @@ class FavoritesController < ApplicationController
     if favorite.destroy
       flash[:notice] = "Post unfavorited."
     else
-      flash[:alert] = "Unfavoriting failed."
+      flash[:alert] = "Unfavoriting failed!"
     end
-      redirect_to [post.topic, post]
+
+    redirect_to [post.topic, post]
+
   end
 end
