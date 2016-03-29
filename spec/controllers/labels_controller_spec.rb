@@ -18,6 +18,6 @@ RSpec.describe LabelsController, type: :controller do
       get :show, { id: my_label.id }
       expect(assigns(:label)).to eq(my_label)
     end
-end
+ end
 
 end
